@@ -71,7 +71,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Alert.cs" />
     <Compile Include="Model\Camera.cs" />
+    <Compile Include="Model\Eye.cs" />
+    <Compile Include="Model\Face.cs" />
+    <Compile Include="Model\FaceEyeTemplate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
