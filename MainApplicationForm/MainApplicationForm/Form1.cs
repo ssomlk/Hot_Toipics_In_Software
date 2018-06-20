@@ -147,7 +147,7 @@ namespace MainApplicationForm
         {
             haarface = this.template.getFaceTemplate();
             haareyes = this.template.getEyeTemplate();
-            listBox1.Items.Add("Act.Time        War. Seq     Percentage     Tot. Frames      Dete. Frames       Actual Per");
+            listBox1.Items.Add("Cur.Time        War.Seq     Percentage     Tot.Frames      Dete.Frames       Actual Per(%)     Alarm Status");
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -162,21 +162,31 @@ namespace MainApplicationForm
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            string warning = "NO";
             string time = string.Format("{0:HH:mm:ss tt}", DateTime.Now);
             seconds += 1;
             if (this.seconds % this.sequence == 0)
             {
                 this.actual_percentage = (eyes_count / countframes) * 100;
-                listBox1.Items.Add(time + "         " + sequence + "                   " + percentage + "                     " + countframes + "                " + eyes_count + "                 " + actual_percentage);
-                listBox1.TopIndex = listBox1.Items.Count - 1;
-                eyes_count = 0;
-                countframes = 0;
-                if (actual_percentage < percentage)
+                if (actual_percentage <= percentage)
                 {
                     this.alert = new Alert();
                     t = new Thread(this.alert.generateWarnings);
                     t.Start();
+                    warning = "YES";
                 }
+                listBox1.Items.Add(time + "         " + sequence + "               " + percentage + "                 " + countframes + "                  " + eyes_count + "                 " + actual_percentage.ToString("F") + "                 " + warning);
+                listBox1.TopIndex = listBox1.Items.Count - 1;
+                try
+                {
+                    Alert.WriteTextAsync(time + "," + sequence + "," + percentage + "," + countframes + "," + eyes_count + "," + actual_percentage.ToString("F") + "," + warning);
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Error writing to File","Contact Administrator");
+                }
+                eyes_count = 0;
+                countframes = 0;
+                warning = "NO";
             }
         }
     }

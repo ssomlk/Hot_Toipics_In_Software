@@ -3,3 +3,4 @@ http://www.emgu.com/wiki/index.php/Setting_up_EMGU_C_Sharp
 http://www.emgu.com/wiki/index.php/Download_And_Installation#Getting_the_Dependency
 https://www.nuget.org/packages/EMGU.CV/
 https://sourceforge.net/projects/emgucv/files/
+https://csharp.hotexamples.com/examples/Emgu.CV.Structure/MCvAvgComp/-/php-mcvavgcomp-class-examples.html
