@@ -142,9 +142,9 @@
             this.label1.Location = new System.Drawing.Point(855, 453);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 14);
+            this.label1.Size = new System.Drawing.Size(241, 14);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Percentage of Closed Eye Detection (%)";
+            this.label1.Text = "Percentage of Opened-Eye Detection (%)";
             // 
             // button1
             // 

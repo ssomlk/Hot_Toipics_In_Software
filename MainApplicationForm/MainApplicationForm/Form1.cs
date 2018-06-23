@@ -126,13 +126,13 @@ namespace MainApplicationForm
 
                         MCvAvgComp eyeLeft = leftEyesDetected[0][0];
                         MCvAvgComp eyeRight = leftEyesDetected[0][0];
-
-                        //Uncomment this to draw all rectangle eyes
-
+                        
+                        // Draw the Left Eye
                         Rectangle eyeRectL = eyeLeft.rect;
                         eyeRectL.Offset(startingLeftEyePointOptimized.X, startingLeftEyePointOptimized.Y);
                         ImageFrame.Draw(eyeRectL, new Bgr(Color.Red), 2);
 
+                        //Draw the Right Eye
                         Rectangle eyeRectR = eyeRight.rect;
                         eyeRectR.Offset(startingPointSearchEyes.X, startingPointSearchEyes.Y);
                         ImageFrame.Draw(eyeRectR, new Bgr(Color.Red), 2);
